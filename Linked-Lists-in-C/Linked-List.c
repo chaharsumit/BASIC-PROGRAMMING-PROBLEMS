@@ -29,7 +29,8 @@ int main()
 
     printf("The number of nodes in the list are - %d",count_nodes(head));
 
-
+    free(head);
+    
     return 0;
 }
 

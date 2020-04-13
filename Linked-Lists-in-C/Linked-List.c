@@ -28,7 +28,9 @@ int main()
     printf("\n");
 
     printf("The number of nodes in the list are - %d",count_nodes(head));
-
+    
+    /*free up the space allocated*/
+    
     free(head);
     
     return 0;

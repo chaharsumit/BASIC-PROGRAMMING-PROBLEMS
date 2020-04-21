@@ -28,8 +28,7 @@ void push(Stack *sp,char value)
             exit(1);
         }
 
-        sp->item == value;
-        sp->top++;
+        sp->item[++sp->top] = value;
 }
 
 /*pop operation for popping out the brackets when needed*/
@@ -41,8 +40,7 @@ char pop(Stack *sp)
         exit(1);
     }
 
-    return sp->item;
-    sp->top--;
+    return sp->item[sp->top--];
 
 }
 
@@ -53,7 +51,7 @@ int isEmpty(Stack *sp)
 }
 
 /*obtaining top of the stack if stack is not empty*/
-char stacktop(Stack *)
+char stacktop(Stack *sp)
 {
     if(isEmpty(sp))
     {
@@ -70,15 +68,16 @@ int isOpeningMatch(char left, char right)
 
     switch(left)
     {
-        case '(': if(right == ')'){
+        case '(': if(right == ')')
                         match = 1;
-                    }
-        case '{': if(right == '}'){
+                  break;
+                    
+        case '{': if(right == '}')
                         match = 1;
-                    }
-        case '[': if(right == ']'){
+                  break;
+        case '[': if(right == ']')
                         match = 1;
-                    }
+                  break;
         default: printf("wrong invalid character entered\n");
                  exit(1);
     }
